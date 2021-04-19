@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/free-online-store-icon-2018-thumb.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

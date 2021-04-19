@@ -4,20 +4,20 @@ import { Button, Card, Title } from 'react-native-paper'
 import { addToCart } from '../context/actions/actions'
 import { UseCartContext } from '../context/Providers/CartProvider'
 
-const Item = ({item: {title, image, price, id}}) => {
+const Item = ({item: {title, image, price, id}, navigation}) => {
     const { dispatch }  = UseCartContext()
     const addItemToCart = () => {
         dispatch(addToCart({title, image, price, id}))
     }
     return (
-    <Card style={styles.card} elevation={1}>
+    <Card style={styles.card} elevation={1} onPress={() => navigation.navigate('Product Details', {id})}>
         <Card.Content>
           <Title>{title}</Title>
         </Card.Content>
         <Card.Cover style={styles.image} source={{ uri: image }} />
         <Card.Actions style={styles.cardAction}>
-        <Text style={styles.priceText}>R {price}</Text>
-          <Button mode="contained" color="lightgreen" dark icon="plus" onPress={addItemToCart} />
+            <Text style={styles.priceText}>R {price}</Text>
+            <Button mode="contained" color="lightgreen" dark icon="plus" onPress={addItemToCart} />
         </Card.Actions>
     </Card>
     )
