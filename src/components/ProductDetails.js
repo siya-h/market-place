@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { ActivityIndicator } from 'react-native'
+import { Image } from 'react-native'
+import { ActivityIndicator, StyleSheet } from 'react-native'
 import { Card, Paragraph, Title } from 'react-native-paper'
 import { useShoppingItems } from '../context/Providers/ShoppingItemsProvider'
 
@@ -15,7 +15,7 @@ const ProductDetails = ({route}) => {
           <Title>{title} - R {price}</Title>
           <Paragraph>{description}</Paragraph>
         </Card.Content>
-        <Card.Cover style={styles.image} source={{ uri: image }} onProgress={() => <ActivityIndicator color="red" size="large"/>} />
+        <Image style={styles.image} resizeMode="contain" source={{ uri: image }} onProgress={() => <ActivityIndicator color="red" size="large"/>} />
       </Card>
     )
 }
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
         padding: 5
     },
     image: {
-        height: 320,
-        
+        height: 300,
+        width: '100%',
+        margin: 3
     }
 })

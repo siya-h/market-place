@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { Children, createContext, useContext, useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
 
 const ShoppingItemsContext = createContext()
 
@@ -32,10 +32,11 @@ const ShoppingItemsProvider = ({children}) => {
         }
     }, [])
     const value = {
-        shoppingItems
+        shoppingItems,
+        hasError,
+        error,
+        isLoading
     }
-    if (isLoading) return <View style={styles.indicatorContainer}><ActivityIndicator size="large" color="lightblue" animating /></View>
-    if (hasError) return <View style={styles.indicatorContainer}><Text>{error.name}: {error.message}</Text></View>
     return (
         <ShoppingItemsContext.Provider value={value}>
             {children}

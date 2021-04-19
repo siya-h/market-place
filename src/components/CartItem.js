@@ -1,9 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
-import { Button } from 'react-native-paper'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import { Divider, Icon } from 'react-native-elements'
+import { removeCartItem } from '../context/actions/actions'
 import { UseCartContext } from '../context/Providers/CartProvider'
-import {removeCartItem} from '../context/actions/actions'
-import { Icon, Divider } from 'react-native-elements';
 
 const CartItem = ({ item: {title, id, image, price }}) => {
     const {dispatch} = UseCartContext()
@@ -13,7 +12,7 @@ const CartItem = ({ item: {title, id, image, price }}) => {
     return (
         <>
         <View style={styles.container}>
-            <Image source={{uri: image}} style={styles.image}/>
+            <Image source={{uri: image}} style={styles.image} resizeMode="contain"/>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>R {price}</Text>
             <Icon name="delete" style={styles.button} color="red" onPress={removeItem}/>
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '15%',
-        height: '100%'
+        height: '100%',
     },
     title: {
         width: '55%',

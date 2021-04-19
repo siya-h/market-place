@@ -1,5 +1,7 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Image } from 'react-native'
+import { View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import { Button, Card, Title } from 'react-native-paper'
 import { addToCart } from '../context/actions/actions'
 import { UseCartContext } from '../context/Providers/CartProvider'
@@ -14,7 +16,8 @@ const Item = ({item: {title, image, price, id}, navigation}) => {
         <Card.Content>
           <Title>{title}</Title>
         </Card.Content>
-        <Card.Cover style={styles.image} source={{ uri: image }} />
+        {/* <Card.Cover style={styles.image} resizeMode="stretch" source={{ uri: image }} /> */}
+        <View style={styles.imageWrapper}><Image style={styles.image} resizeMode="stretch" source={{ uri: image }} /></View>
         <Card.Actions style={styles.cardAction}>
             <Text style={styles.priceText}>R {price}</Text>
             <Button mode="contained" color="lightgreen" dark icon="plus" onPress={addItemToCart} />
@@ -31,7 +34,12 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 350
+        height: 300,
+    },
+    imageWrapper: {
+        flex: 1,
+        alignItems: 'center',
+        margin: 3
     },
     cardAction: {
         flex: 1,

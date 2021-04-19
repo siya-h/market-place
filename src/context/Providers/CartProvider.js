@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useReducer } from 'react'
-import { View, Text } from 'react-native'
 import cartReducer from '../reducers/cartReducer'
 
 const CartContext = createContext()
