@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { ActivityIndicator } from 'react-native'
-import { View, Text } from 'react-native'
 import { Card, Paragraph, Title } from 'react-native-paper'
 import { useShoppingItems } from '../context/Providers/ShoppingItemsProvider'
 
