@@ -59,6 +59,6 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     itemsList: {
-        marginBottom: 180,
+        marginBottom: 100,
     }
 })

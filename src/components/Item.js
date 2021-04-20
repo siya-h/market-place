@@ -1,13 +1,14 @@
+import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { Image } from 'react-native'
-import { View } from 'react-native'
-import { StyleSheet, Text } from 'react-native'
-import { Button, Card, Title } from 'react-native-paper'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import { Icon } from 'react-native-elements'
+import {  Card, Title, Button } from 'react-native-paper'
 import { addToCart } from '../context/actions/actions'
 import { UseCartContext } from '../context/Providers/CartProvider'
 
-const Item = ({item: {title, image, price, id}, navigation}) => {
-    const { dispatch }  = UseCartContext()
+const Item = ({item: {title, image, price, id}}) => {
+    const navigation = useNavigation()
+    const { dispatch } = UseCartContext()
     const addItemToCart = () => {
         dispatch(addToCart({title, image, price, id}))
     }
@@ -16,11 +17,10 @@ const Item = ({item: {title, image, price, id}, navigation}) => {
         <Card.Content>
           <Title>{title}</Title>
         </Card.Content>
-        {/* <Card.Cover style={styles.image} resizeMode="stretch" source={{ uri: image }} /> */}
-        <View style={styles.imageWrapper}><Image style={styles.image} resizeMode="stretch" source={{ uri: image }} /></View>
+        <View style={styles.imageWrapper}><Image style={styles.image} resizeMode="contain" source={{ uri: image }} /></View>
         <Card.Actions style={styles.cardAction}>
             <Text style={styles.priceText}>R {price}</Text>
-            <Button mode="contained" color="lightgreen" dark icon="plus" onPress={addItemToCart} />
+            <Button mode="contained" color="dodgerblue" dark icon="cart-plus" onPress={addItemToCart} />
         </Card.Actions>
     </Card>
     )

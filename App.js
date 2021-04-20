@@ -10,7 +10,7 @@ const MainStack = createStackNavigator()
 export default function App() {
   return (
     <Wrapper >
-      <MainStack.Navigator screenOptions={{headerStyle: {backgroundColor: 'lightblue'}, headerTintColor: 'white'}}>
+      <MainStack.Navigator mode="modal" screenOptions={{headerStyle: {backgroundColor: 'lightblue'}, headerTintColor: 'black', headerTitleAlign: 'center'}}>
       <MainStack.Screen name="Market Square" >
         {() => (<Tabs />)}
       </MainStack.Screen>

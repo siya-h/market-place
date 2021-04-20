@@ -12,13 +12,13 @@ export default function Wrapper({children}) {
     <NavigationContainer>
         <StatusBar backgroundColor={platform === 'ios'? 'white': 'black' } barStyle={platform === 'ios' ? 'dark-content' : 'light-content'}/>
 
-      <SafeAreaView style={styles.container}>
+      {/* <SafeAreaView style={styles.container}> */}
       <CartProvider>
         <ShoppingItemsProvider>
                 {children}
         </ShoppingItemsProvider>
         </CartProvider>
-      </SafeAreaView>
+      {/* </SafeAreaView> */}
     </NavigationContainer>
 
   );
@@ -27,6 +27,6 @@ export default function Wrapper({children}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'lightblue',
   },
 });

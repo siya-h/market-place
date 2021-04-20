@@ -15,7 +15,7 @@ const CartItem = ({ item: {title, id, image, price }}) => {
             <Image source={{uri: image}} style={styles.image} resizeMode="contain"/>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>R {price}</Text>
-            <Icon name="delete" style={styles.button} color="red" onPress={removeItem}/>
+            <Icon name="trash" type="font-awesome-5" style={styles.button} color="red" onPress={removeItem}/>
             
         </View>
         <Divider style={styles.divider}/>
