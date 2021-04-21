@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import { Icon } from 'react-native-elements'
 import {  Card, Title, Button } from 'react-native-paper'
 import { addToCart } from '../context/actions/actions'
 import { UseCartContext } from '../context/Providers/CartProvider'
@@ -20,7 +19,7 @@ const Item = ({item: {title, image, price, id}}) => {
         <View style={styles.imageWrapper}><Image style={styles.image} resizeMode="contain" source={{ uri: image }} /></View>
         <Card.Actions style={styles.cardAction}>
             <Text style={styles.priceText}>R {price}</Text>
-            <Button mode="contained" color="dodgerblue" dark icon="cart-plus" onPress={addItemToCart} />
+            <Button mode="contained" color="dodgerblue" dark icon="cart-plus" style={styles.addToCartButton} onPress={addItemToCart} />
         </Card.Actions>
     </Card>
     )
@@ -47,5 +46,8 @@ const styles = StyleSheet.create({
     },
     priceText: {
         fontSize: 20
+    }, 
+    addToCartButton: {
+        paddingVertical: 2
     }
 })
